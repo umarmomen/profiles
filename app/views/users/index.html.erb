@@ -1,23 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Sign Up", signup_path %> |
-<%= link_to "Log In", login_path %>
-
-<br>
-<br>
-<br>
-<br>
-
-<% if current_user %>
+<% if user = current_user %>
   Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
+  <%= link_to 'Log Out', logout_path %>
+  <%= link_to 'View Profile', user_path(user) %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> |
   <%= link_to "Log In", login_path %>
 <% end %>
-<p id="notice"><%= notice %></p>
-<h1>Example</h1>
-<%= link_to 'View tutors', users_path %>
 
 <h1>Tutors</h1>
 
@@ -41,8 +31,6 @@
           <td><%= user.name %></td>
           <td><%= user.about %></td>
           <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
     <% end %>
