@@ -8,15 +8,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  resources :users
-  root 'home#index'
-end
-
-Rails.application.routes.draw do
-  root 'home#index'
+  root 'users#index'
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
