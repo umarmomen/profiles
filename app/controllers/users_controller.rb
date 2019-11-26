@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @name_filter = params[:name]
+    @name_filter = params[:name_filter]
     @course_filter = params[:course_filter]
     @year_filter = params[:year_filter]
 
