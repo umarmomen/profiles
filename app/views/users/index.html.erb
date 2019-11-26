@@ -1,7 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Sign Up", signup_path %> |
-<%= link_to "Log In", login_path %>
+<%= form_tag(users_path, :method => "get",
+             class: 'navbar-form navbar-left') do %>
+
+  <div class="input-group">
+    <%= search_field_tag :name_filter, params[:name_filter], placeholder: "Search by Name", class: "form-control" %>
+
+    <%= search_field_tag :year_filter, params[:year_filter], placeholder: "Filter by Year", class: "form-control" %>
+
+    <%= search_field_tag :course_filter, params[:course_filter], placeholder: "Filter by Course", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+    </div>
+  </div>
+<% end %>
+
+<% if user = current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to 'Log Out', logout_path %>
+  <%= link_to 'View Profile', user_path(user) %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> |
+  <%= link_to "Log In", login_path %>
+<% end %>
 
 <h1>Tutors</h1>
 
@@ -25,8 +46,6 @@
           <td><%= user.name %></td>
           <td><%= user.about %></td>
           <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
     <% end %>
