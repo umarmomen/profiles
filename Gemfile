@@ -36,6 +36,16 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Beautifying
+gem 'haml'
+gem 'bootstrap', '~> 4.3.1'
+gem "autoprefixer-rails"
+gem 'jquery-rails'
+gem 'bootstrap-glyphicons'
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-turbolinks'
+gem 'tinymce-rails', '~> 4.3', '>= 4.3.13'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
