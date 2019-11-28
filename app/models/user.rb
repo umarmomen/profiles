@@ -5,4 +5,8 @@ class User < ApplicationRecord
     return ['CS61A']
   end
 
+  def self.get_secret_key
+    return "CS"
+  end
+
 end
