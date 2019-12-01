@@ -72,7 +72,7 @@
 //from https://bootsnipp.com/snippets/K0ZmK?fbclid=IwAR3NP5KADQJ98t0BNcO-5Qw-7bvYtsf4Zkcztv8tU7zY6lx0jIA-_049swM
 
 body{
-    background: -webkit-linear-gradient(left, #ffcc99, #e6ffff);
+    background: -webkit-linear-gradient(right, #0000cc, #ffc107);
 }
 .emp-profile{
     padding: 3%;
@@ -206,27 +206,4 @@ body{
 .special-form > * {
   width: fit-content;
   padding-right: 20px;
-}
-
-.thumbnail_container img {
-  width: 75px;
-  height: 75px;
-}
-
-.search_result {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  border-radius: 0.5rem;
-  > *:hover {
-    cursor: pointer;
-  }
-  border-style: solid;
-  color: black;
-  background-color: #ccf5ff;
-}
-
-.divider{
-    width:2px;
-    height:none;
-    display:inline-block;
 }

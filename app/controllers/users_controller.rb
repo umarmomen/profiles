@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @name_filter = params[:name_filter]
     @course_filter = params[:course_filter]
     @year_filter = params[:year_filter]
-
+    @true_classes = User.courses_list
     course_filter_not_present = @course_filter.blank?
     year_filter_not_present = @year_filter.blank?
     name_filter_not_present = @name_filter.blank?
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @true_classes = ["CS61A", "CS61B", "CS61C"]
+    @true_classes = User.courses_list
   end
 
   # GET /users/new
@@ -72,8 +72,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: "Profile successfully updated!" }
         format.json { render :show, status: :ok, location: @user }
+        @user.courses = params[:courses].join(' ')
+        @user.save
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
