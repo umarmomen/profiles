@@ -74,8 +74,10 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "Profile successfully updated!" }
         format.json { render :show, status: :ok, location: @user }
-        @user.courses = params[:courses].join(' ')
-        @user.save
+        if params[:courses]
+          @user.courses = params[:courses].join(' ')
+          @user.save
+        end
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
