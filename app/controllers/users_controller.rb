@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     year_filter_not_present = @year_filter.blank?
     name_filter_not_present = @name_filter.blank?
 
-
     if course_filter_not_present and year_filter_not_present and name_filter_not_present
       @users = User.all
     elsif course_filter_not_present and name_filter_not_present
