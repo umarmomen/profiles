@@ -34,13 +34,6 @@
 
       <div class="row">
         <div class="field">
-            <%= form.label :year %>
-            <%= form.select :year, (1..9) %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="field">
             <%= form.label :courses %>
               <% User.courses_list.each do |course| %>
                 <% if @user.courses %>
