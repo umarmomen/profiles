@@ -13,9 +13,9 @@
         <div class="search-field">
           <%= search_field_tag :name_filter, params[:name_filter], placeholder: "Search by Name", class: "form-control" %>
         </div>
-        <div class="search-field">
+        <!-- <div class="search-field">
           <%= search_field_tag :year_filter, params[:year_filter], placeholder: "Filter by Year", class: "form-control" %>
-        </div>
+        </div> -->
         <div class="search-field">
           <%= search_field_tag :course_filter, params[:course_filter], placeholder: "Filter by Course", class: "form-control" %>
         </div>
@@ -67,7 +67,7 @@
             <%=user.email %>
         </h6>
         <h6 style="margin-bottom: 3px;">
-            'Year: '<%=user.year %>
+            Year: <%=user.year %>
         </h6>
       </div>
       <div class="col-md-6">
