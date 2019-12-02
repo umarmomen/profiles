@@ -1,9 +1,10 @@
 <%= stylesheet_link_tag "navbar" %>
 <div class="topnav">
-	<% if current_user = @user %>
-		Logged in as <%= current_user.email %>.
+	<% if current_user %>
+		<%= current_user.name %>
 		<a href=<%= logout_path %>>Logout</a>
-		<a href=<%= user_path(@user) %>>View Profile</a>
+		<a href=<%= user_path(current_user) %>>View Profile</a>
+
 	<% else %>
 		<a style="float:right;" href=<%= signup_path %>>Sign Up</a>
 		<a href=<%= login_path %>>Login</a>
