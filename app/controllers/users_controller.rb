@@ -18,8 +18,7 @@ class UsersController < ApplicationController
     elsif course_filter_not_present
       @users = User.where("name like ?", "%#{@name_filter}%")
     else
-      @users = User.where("courses like '#{@course_filter}' AND name like '#{@name_filter}'")
-
+      @users = User.where("courses like ?", "%#{@course_filter}%").where("name like ?", "%#{@name_filter}%")
     end
 
   end
