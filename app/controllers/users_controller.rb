@@ -4,26 +4,21 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @true_classes = User.courses_list
+
     @name_filter = params[:name_filter]
     @course_filter = params[:course_filter]
-    @year_filter = params[:year_filter]
-    @true_classes = User.courses_list
     course_filter_not_present = @course_filter.blank?
-    year_filter_not_present = @year_filter.blank?
     name_filter_not_present = @name_filter.blank?
 
-    if course_filter_not_present and year_filter_not_present and name_filter_not_present
+    if course_filter_not_present and name_filter_not_present
       @users = User.all
-    elsif course_filter_not_present and name_filter_not_present
-      @users = User.where(:year=>@year_filter)
-    elsif year_filter_not_present and name_filter_not_present
-      @users = User.where("courses like ?", "%#{@course_filter}%")
-    elsif course_filter_not_present and year_filter_not_present
-      @users = User.where("name like ?", "%#{@name_filter}%")
     elsif name_filter_not_present
-      @users = User.where("year = #{@year_filter} AND courses like '#{@course_filter}'")
+      @users = User.where("courses like ?", "%#{@course_filter}%")
+    elsif course_filter_not_present
+      @users = User.where("name like ?", "%#{@name_filter}%")
     else
-      @users = User.where("year = #{@year_filter} AND courses like '#{@course_filter}' AND name like '#{@name_filter}'")
+      @users = User.where("courses like '#{@course_filter}' AND name like '#{@name_filter}'")
 
     end
 
