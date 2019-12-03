@@ -1,3 +1,6 @@
+# CS370B Profiles
+As part of the CS169 project, this website was created such that anyone can view tutor profiles for students that are currently or were previously enrolled in CS370, instructed by Christopher Hunn.
+
 # System Requirements:
   * Ruby 2.6.3
   * Rails 5.2.3
