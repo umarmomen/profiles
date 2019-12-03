@@ -52,8 +52,10 @@
     <div class="row search_result" >
       <div class="col-md-1">
         <div class="thumbnail_container">
-          <% if user.image %>
-            <%= image_tag(user.image,  :size => "100x100") %>
+          <% if user.image.url %>
+            <% if user.image.url != "/images/original/missing.png"%>
+              <%= image_tag user.image.url, height: 100, width: 100 %>
+            <% end %>
           <% else %>
             <%= image_tag("user.svg", :class => "thumbnail_container") %>
           <% end %>

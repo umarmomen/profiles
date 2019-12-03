@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_223610) do
+ActiveRecord::Schema.define(version: 2019_12_02_235711) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2019_12_02_223610) do
     t.text "philosophy"
     t.text "courses"
     t.text "about"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

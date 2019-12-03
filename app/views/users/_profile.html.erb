@@ -17,7 +17,7 @@
   <tbody>
     <tr>
         <td><%= @user.email %></td>
-        <td><%= @user.image %></td>
+        <td><%= image_tag @user.image.url %></td>
         <td><%= @user.name %></td>
         <td><%= @user.major %></td>
         <td><%= @user.year %></td>

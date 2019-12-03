@@ -13,7 +13,11 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <%= image_tag("user.svg") %>
+                <% if @user.image.url == "/images/original/missing.png"%>
+                    <%= image_tag("user.svg") %>
+                <% else %>
+                    <%= image_tag @user.image.url %>
+                <% end %>
             </div>
         </div>
         <div class="col-md-6">
