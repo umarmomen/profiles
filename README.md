@@ -7,7 +7,7 @@ As part of the CS169 project, this website was created such that anyone can view
   
   For assistance with installation, check out [this website](https://gorails.com/setup/windows/10).
   
- # Setting Up
+# Setting Up
  After cloning this repository, run the following command in terminal:
  ```
  $ bundle install --without production
@@ -21,9 +21,18 @@ As part of the CS169 project, this website was created such that anyone can view
  ```
  rails server
  ```
+ When creating an account, there is a secret key that must be entered.  The secret key is currently set to `CS` and can be found in `app/models/user.rb` under the `self.get_secret_key` function, and can be altered via this function.
   
-  # Testing
+# Testing
   
-  # Deployment
+# Deployment
+First, ensure that you have git installed by running 
+```
+$ git --version
+```
+If not, follow the guide on [this website](https://www.linode.com/docs/development/version-control/how-to-install-git-on-linux-mac-and-windows/)
+
+Next, ensure that you have a heroku account, which can be created [here](https://signup.heroku.com/).  Once you have an account, follow instructions [here](https://devcenter.heroku.com/articles/git) to deploy the application to heroku via git.
+ 
   
   
