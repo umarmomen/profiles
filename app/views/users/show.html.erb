@@ -56,7 +56,7 @@
                 <% if @user.courses %>
                   <% @user.courses.split.each do |berkeley_class| %>
                     <div class="value" >
-                        <label> <%= berkeley_class  %> </label>
+                        <label> <%= berkeley_class %> </label>
                     </div>
                   <% end %>
                 <% else %>
@@ -73,11 +73,6 @@
                         </div>
                         <div class="col-md-6 field">
                             <p><%= @user.email%></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Years in School</label>
                         </div>
                     </div>
                     <div class="row">
