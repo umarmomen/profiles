@@ -64,16 +64,21 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "Profile successfully updated!" }
+      if (current_user == nil) || (@user.id != current_user.id)
+        format.html { redirect_to @user, notice: "Unauthorized update." }
         format.json { render :show, status: :ok, location: @user }
-        if params[:courses]
-          @user.courses = params[:courses].join(' ')
-          @user.save
-        end
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        if @user.update(user_params)
+          format.html { redirect_to @user, notice: "Profile successfully updated!" }
+          format.json { render :show, status: :ok, location: @user }
+          if params[:courses]
+            @user.courses = params[:courses].join(' ')
+            @user.save
+          end
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
