@@ -45,11 +45,11 @@ class UsersController < ApplicationController
     if params[:user][:secret_key] == User.get_secret_key
       if /\A[\w+\-.]+@berkeley.edu/.match(params[:user][:email])
         @user = User.new(user_params)
-
         respond_to do |format|
           if @user.save
             format.html { redirect_to edit_user_path(@user), notice: 'User was successfully created.' }
             format.json { render :show, status: :created, location: @user }
+            session[:user_id] = @user.id
           else
             format.html { render :new }
             format.json { render json: @user.errors, status: :unprocessable_entity }
