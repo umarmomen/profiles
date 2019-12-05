@@ -14,11 +14,11 @@ class UsersController < ApplicationController
     if course_filter_not_present and name_filter_not_present
       @users = User.all
     elsif name_filter_not_present
-      @users = User.where("courses like ?", "%#{@course_filter}%")
+      @users = User.where("courses ILIKE ?", "%#{@course_filter}%")
     elsif course_filter_not_present
-      @users = User.where("name like ?", "%#{@name_filter}%")
+      @users = User.where("name ILIKE ?", "%#{@name_filter}%")
     else
-      @users = User.where("courses like ?", "%#{@course_filter}%").where("name like ?", "%#{@name_filter}%")
+      @users = User.where("courses ILIKE ?", "%#{@course_filter}%").where("name ILIKE ?", "%#{@name_filter}%")
     end
 
   end
