@@ -1,4 +1,7 @@
-<p id=”alert”><%= alert %></p>
+<% if alert %>
+  <%= render "notice_danger" %>
+<% end %>
+
 <%= stylesheet_link_tag "users" %>
 
 <div class="container emp-profile">

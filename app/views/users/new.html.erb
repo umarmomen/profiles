@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <%= render "notice_danger" %>
+<% end %>
 
 <%= stylesheet_link_tag "users" %>
 
