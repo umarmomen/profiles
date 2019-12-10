@@ -1,4 +1,6 @@
 language: ruby
+services:
+  - postgresql
 addons:
   postgresql: "11.5"
 rvm:
