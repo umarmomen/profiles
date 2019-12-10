@@ -28,6 +28,12 @@ sudo /etc/init.d/postgresql start
  When creating an account, there is a secret key that must be entered.  The secret key is currently set to `CS` and can be found in `app/models/user.rb` under the `self.get_secret_key` function, and can be altered via this function.
   
 # Testing
+Code Climate Maintainability Badge
+  <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+  
+Code Climate Test Coverage Badge
+  <a href="https://codeclimate.com/github/codeclimate/codeclimate/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage" /></a>
+  
   
 # Deployment
 First, ensure that you have git installed by running 

@@ -32,10 +32,20 @@ RSpec.describe UsersController, type: :controller do
 		expect(User.where(email: "usertest@berkeley.edu", name: "Test User")).to exist
 		expect(User.where(email: "usertest2@berkeley.edu", name: "Test User2")).to exist
 	end
+
+	it "create a second user with invalid email and confirm only 1 present" do
+		expect {
+			@tutee2 = User.create!(email: "usertest2@gmail",
+		      password_digest: "password",
+		      name: "Test User2",
+		      major: "Film",
+		      philosophy: "Film is not the best major, but I teach CS anyway",
+		      courses: "CS61A CS61B EE16A",
+		      about: "Gonna be a star one day")
+		}.to raise_error(ActiveRecord::RecordInvalid)
+		User.count.should eq (@usercount + 1)
+	end
 end
-
-
-
 
 
 RSpec.describe User, :type => :model do
