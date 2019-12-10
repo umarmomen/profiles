@@ -12,6 +12,10 @@ As part of the CS169 project, this website was created such that anyone can view
  ```
  $ bundle install --without production
  ```
+This app used postgresql as a database as the database that is shipped with rails (sqlite) is not compatible with heroku.  To accomodate for this, installation instructions can be found [here for Mac](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb) and [here for Windows subystem for Linux](https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/blob/master/readmes/installs/PostgreSQL.md).  For WSL, run the following command to start up the database:
+```
+sudo /etc/init.d/postgresql start
+``` 
  Once this has finished, run the following line to set up the database:
  ```
  rails db:reset
