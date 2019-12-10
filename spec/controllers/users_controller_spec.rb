@@ -20,3 +20,23 @@ RSpec.describe UsersController, type: :controller do
 		expect(User.where(email: "usertest@gmail.com", name: "Test User")).to exist
 	end
 end
+
+
+
+
+
+RSpec.describe User, :type => :model do
+	subject { described_class.new }
+
+	it "is valid with valid attributes" do
+		subject.email = "something"
+		subject.password = "something"
+		subject.name = "something"
+		subject.major = "something"
+		expect(subject).to be_valid
+	end
+
+	it "is not valid without an email" do
+		expect(subject).to_not be_valid
+	end
+end
