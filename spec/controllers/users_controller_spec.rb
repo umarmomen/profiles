@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 	before do
 		@usercount = User.count
-		@tutee = User.create!(email: "usertest@gmail.com",
+		@tutee = User.create!(email: "usertest@berkeley.edu",
 	      password_digest: "password",
 	      name: "Test User",
 	      major: "Film",
@@ -17,11 +17,11 @@ RSpec.describe UsersController, type: :controller do
 
 	it "create a user and make sure its in the DB" do
 		@usercount = User.count
-		expect(User.where(email: "usertest@gmail.com", name: "Test User")).to exist
+		expect(User.where(email: "usertest@berkeley.edu", name: "Test User")).to exist
 	end
 
 	it "create a second user and confirm both are present" do
-		@tutee2 = User.create!(email: "usertest2@gmail.com",
+		@tutee2 = User.create!(email: "usertest2@berkeley.edu",
 	      password_digest: "password",
 	      name: "Test User2",
 	      major: "Film",
@@ -29,8 +29,8 @@ RSpec.describe UsersController, type: :controller do
 	      courses: "CS61A CS61B EE16A",
 	      about: "Gonna be a star one day")
 		User.count.should eq (@usercount + 2)
-		expect(User.where(email: "usertest@gmail.com", name: "Test User")).to exist
-		expect(User.where(email: "usertest2@gmail.com", name: "Test User2")).to exist
+		expect(User.where(email: "usertest@berkeley.edu", name: "Test User")).to exist
+		expect(User.where(email: "usertest2@berkeley.edu", name: "Test User2")).to exist
 	end
 end
 
@@ -42,7 +42,7 @@ RSpec.describe User, :type => :model do
 	subject { described_class.new }
 
 	it "is valid with valid attributes" do
-		subject.email = "something"
+		subject.email = "something@berkeley.edu"
 		subject.password = "something"
 		subject.name = "something"
 		subject.major = "something"

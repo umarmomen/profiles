@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_attached_file :image
   validates :email, presence: true, uniqueness: true
+  validates :email, format: {with: /\A[\w+\-.]+@berkeley.edu/}, :on => :create
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   
