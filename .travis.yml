@@ -6,4 +6,4 @@ services:
 addons:
   postgresql: "11.5"
 rvm:
- - 2.6
+ - 2.6.3
