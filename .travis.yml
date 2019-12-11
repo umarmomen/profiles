@@ -4,6 +4,6 @@ before_script:
 services:
   - postgresql
 addons:
-  postgresql: "11"
+  postgresql: "10"
 rvm:
  - 2.6.3
