@@ -25,7 +25,7 @@ script:
   - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
 after_script:
   # combine coverage from all suites, and upload to CodeClimate
-  - $CCTR sum-coverage coverage/codeclimate.*.json | $CCTR upload-coverage
+  - $CCTR upload-coverage
   - $CCTR after-build --exit-code $TRAVIS_TEST_RESULT
 
 services:
